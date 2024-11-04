@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dumagsa - My Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* Blog Container */
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            background: linear-gradient(45deg, #6a0572, #a4508b);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+        }
+
+        /* Profile Section */
+        .profile {
+            text-align: justify;
+            padding: 1rem;
+            background-color: #a69cac;
+            color: white;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer; 
+        }
+
+        .profile img {
+            width: 100%; 
+            max-width: 120px; 
+            height: auto; 
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+        .profile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .intro {
+            display: none; 
+            margin-top: 1rem;
+        }
+
+        /* Section Styling */
+        section {
+            background: #ffffff;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            background: #6a0572;
+            color: white;
+            padding: 1rem;
+            margin: 0;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        section .summary {
+            padding: 1rem;
+            background: #f1f1f1;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        section .details {
+            display: none;
+            padding: 1rem;
+            font-size: 1rem;
+            border-top: 2px solid #a4508b;
+            background: #fdfdfd;
+            color: #333;
+        }
+
+        section.active .details {
+            display: block;
+        }
+
+        /* Projects Section Styling */
+        .project-table {
+                margin: 1.5rem 0;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 1.5rem;
+                background-color: #ffffff; 
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+            }
+
+            th, td {
+                padding: 12px; 
+                text-align: left; 
+                border-bottom: 1px solid #ddd; 
+            }
+
+            .table-header {
+                background-color: #a69cac; 
+                color: #300430; 
+                font-weight: bold; 
+            }
+
+            .video-cell, .image-cell {
+                width: 30%; 
+                text-align: center; 
+            }
+
+            .video-cell video, .image-cell img {
+                max-width: 100%; 
+                height: auto; 
+            }
+
+            /* Responsive styling for tables */
+            @media (max-width: 768px) {
+                table {
+                    display: block; 
+                    overflow-x: auto; 
+                }
+
+                th, td {
+                    display: block; 
+                    text-align: left; 
+                }
+            }
+
+         /* Footer Styling */
+         footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: linear-gradient(45deg, #6a0572, #a4508b);
+            color: white;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+
+        /* responsive sections  */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+        <!-- Header Section -->
+        <header>
+            <h1>Trisha Marie R. Dumagsa</h1>
+            <p>Undergraduate at Technological University of the Philippines - Manila</p>
+        </header>
+
+        <!-- Profile Section -->
+        <div class="container">
+            <div class="profile" onclick="toggleIntro(this)">
+                <img src="my-img.jpg" alt="Profile Picture">
+                <div class="intro">
+                    <p>Hello! I am Trisha Marie R. Dumagsa, an undergraduate student with a passion for technology, creativity, and 
+                        continuous learning. I am dedicated to exploring the field of Information Systems and developing solutions that 
+                        bridge the gap between technology and real-world applications. Welcome to my blog, where I share
+                         insights, skills, and personal experiences!</p>
+                </div>
+            </div>
+
+        <!-- About Me Section -->
+        <section onclick="toggleDetails(this)">
+            <h2>About Me</h2>
+            <div class="summary">
+                <p>Hi, I am Trisha! Would you be interested to view my background and interests?</p>
+            </div>
+            <div class="details">
+                <p>I am a creative individual with a strong drive to learn and enhance my communication skills.
+                    I thrive on exploring ideas, experiences, and finding solutions to challenges. Passionate about continuous growth,
+                    I aim to constantly seek new knowledge and skills to enhance my abilities, and collaborating to achieve shared goals.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section onclick="toggleDetails(this)">
+            <h2>Education</h2>
+            <div class="summary">
+                <p>Presently, I am a 3rd year college student. Click to know my academic background and achievements...</p>
+            </div>
+            <div class="details">
+                <ul>
+                    <li><strong>2016:</strong> Primary Education with 2 Academic Gold Medals</li>
+                    <li><strong>2020:</strong> Junior High School, graduated With Honors</li>
+                    <li><strong>2022:</strong> STEM - Senior High School, graduated With Honors</li>
+                    <li><strong>2022-Present:</strong> Bachelor of Science in Information Systems</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section onclick="toggleDetails(this)">
+            <h2>Skills</h2>
+            <div class="summary">
+                <p> As a future professional, please check out my top skills...</p>
+            </div>
+            <div class="details">
+                <ul>
+                    <li>Technical Writing</li>
+                    <li>Research</li>
+                    <li>Creativity</li>
+                    <li>Communication skills</li>
+                    <li>Computer literacy</li>
+                    <li>Decision-making</li>
+                    <li>Programming Knowledge</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Programming Knowledge Section -->
+        <section onclick="toggleDetails(this)">
+            <h2>Programming Knowledge</h2>
+            <div class="summary">
+                <p> As an IS student, these are my experiences in programming...</p>
+            </div>
+            <div class="details">
+                <ul>
+                    <li>Object-Oriented Programming (Java with MySQL)</li>
+                    <li>Data Structures & Algorithm (C/C++)</li>
+                    <li>Web Development (HTML/CSS)</li>
+                    <li>Prototyping (Figma Platform)</li>
+                    <li>Database Management Systems (FoxPro, SQL)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section onclick="toggleDetails(this)">
+            <h2>Projects</h2>
+            <div class="summary">
+                <p>Click to view my projects...</p>
+            </div>
+            <div class="details">
+                <div class="project-table">
+                    <!-- Project 1: JAVA PROGRAM IN OOP -->
+                    <table>
+                        <tr>
+                            <td colspan="2" class="table-header">JAVA PROGRAM IN OOP</td>
+                        </tr>
+                        <tr>
+                            <td class="video-cell">
+                                <video controls>
+                                    <source src="vid-myjavapdemo.mp4" type="video/mp4">
+                                </video>
+                            </td>
+                            <td>
+                                <b>Description:</b> The final output for our OOP subject required us to present a program using Java. 
+                                In my output, it is an online jewelry shop wherein I applied the Login, Insert, Update, and Delete Data methods 
+                                and added functionalities.
+                                <br><br> In the main page, the user is able to see my company name, its purpose, and a login form. 
+                                Once logged-in, the user is directed to create a customer account where personal details are saved.
+                                 Once accomplished, the user is welcomed with the home page where ordering is done.
+                                In addition, the user can visit their account by searching the personal ID where editing 
+                                and updating are applicable.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><b>Technologies Used:</b> Java with OOP concepts and MySQL for data storage </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><b>GitHub Repository:</b> <a href="https://github.com/source8marie/Java-FinalOutput-Dumagsa/tree/main" target="_blank">see my project</a></td>
+                        </tr>
+                    </table>
+
+                    <br>
+
+                    <!-- Project 2: ATM SIMULATION -->
+                    <table>
+                        <tr>
+                            <td colspan="2" class="table-header">ATM SIMULATION (Data Structures & Algorithms)</td>
+                        </tr>
+                        <tr>
+                            <td class="image-cell">
+                                <img src="pic-atm.png" alt="ATM Simulation">
+                            </td>
+                            <td>
+                                <b>Description:</b> This individual project is focused on an ATM simulation that includes a 
+                                transaction and registration module (e.g., Balance inquiry, withdraw, deposit, 
+                                fund transfer for enrolled accounts, and change PIN code). Using our knowledge in C++, 
+                                the class was tasked to ensure that the program applies ADT LIST Operations in array implementation.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><b>Technologies Used:</b> C++, ADT List, File I/O.
+                                <br><br> Other requirements included the use of Flash Drive as ATM Card, 
+                                encrypted PIN Code where it'll be stored in the ATM Card for checking 
+                                and the List will also store the PIN Code for cross-checking.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><b>GitHub Repository:</b> <a href="https://github.com/source8marie/ATM-Simulation_Dumagsa" target="_blank">see my project</a></td>
+                        </tr>
+                    </table>
+
+                    <br>
+
+                    <!-- Project 3: FIGMA Prototype -->
+                    <table>
+                        <tr>
+                            <td colspan="2" class="table-header">FIGMA - PROTOTYPE (Applications Development & Emerging Technologies)</td>
+                        </tr>
+                        <tr>
+                            <td class="image-cell">
+                                <img src="pic-figma.png" alt="Tokyo Planner">
+                            </td>
+                            <td>
+                                <b>Description:</b> This project is a non-programming activity and focuses on prototyping. 
+                                I led our team in developing a planner application prototype entitled the Tokyo Planner. 
+                                As the name suggests, its purpose is to help the user build his/her itinerary as a guide while in Tokyo, Japan. 
+                                Once I thought of its design and framework, we then narrowed down the scope to focus on a certain area. <br><br>
+                                In this context, Tokyo is commonly visited by tourists hence our team was able to research 
+                                and include popular spots, restaurants, transportation, and lodging; wherein the user is able to schedule, 
+                                find a place, reserve, and note reminders with our application.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><b>Technologies Used:</b> Figma platform for prototyping </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><b>Prototype Platform:</b> <a href="https://www.figma.com/proto/eACOOW3FEk5m8Rj6FjD16r/Untitled?node-id=322-117&t=n3tzZgd8sRyA1RFH-1&fbclid=IwZXh0bgNhZW0CMTEAAR3lVQ72X-Atr48KspOd37TZjwXKdIw639m8poynwrGlws-JqWoiMyVgM2Q_aem_Epto8UhihwczOPkS2M9XsA" target="_blank">see my project</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section onclick="toggleDetails(this)">
+            <h2>Contact Me</h2>
+            <div class="summary">
+                <p>Thanks for the interest! You may get in touch with me with the details below...</p>
+            </div>
+            <div class="details">
+                <p><b>Phone:</b> 0945 483 9061</p>
+                <p><b>Email:</b> <a href="mailto:dumagsatrishamarie@gmail.com">dumagsatrishamarie@gmail.com</a></p>
+                <p><b>GitHub:</b> <a href="https://github.com/source8marie" target="_blank">source8marie</a></p>
+                <p><b>LinkedIn:</b> <a href="https://ph.linkedin.com/in/trisha-marie-1484bb333?trk=public_post_follow-view-profile" target="_blank">Trisha Marie Dumagsa</a></p>
+                <p><b>Address:</b> Molino IV, Bacoor, Cavite</p>
+            </div>
+        </section>
+    </div>
+
+     <!-- Footer -->
+     <footer>
+        <p>© 2024 My Blog</p>
+    </footer>
+
+    <script>
+        function toggleIntro(profile) {
+            const intro = profile.querySelector('.intro');
+            intro.style.display = (intro.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function toggleDetails(section) {
+            section.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
